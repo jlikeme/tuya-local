@@ -1,0 +1,10 @@
+name: ZigBee ADAPROX Fingerbot
+products:
+  - id: dse8ogfy
+primary_entity:
+  entity: button
+  name: Button
+  dps:
+    - id: 1
+      type: boolean
+      name: button

@@ -1,0 +1,34 @@
+name: Door Magnetic and Luminance Sensor
+products:
+  - id: pay2byax
+    name: Luminance Door Sensor
+    model: Luminance Door Sensor (pay2byax)
+primary_entity:
+  entity: binary_sensor
+  name: Door Magnetic State
+  class: door
+  dps:
+    - id: 1
+      type: boolean
+      name: sensor
+      readonly: true
+secondary_entities:
+  - entity: sensor
+    name: Bright Value
+    class: illuminance
+    dps:
+      - id: 101
+        type: integer
+        name: sensor
+        unit: lux
+        class: measurement
+        optional: true
+  - entity: sensor
+    name: Battery Percentage
+    class: battery
+    category: diagnostic
+    dps:
+      - id: 2
+        type: integer
+        name: sensor
+        unit: "%"
