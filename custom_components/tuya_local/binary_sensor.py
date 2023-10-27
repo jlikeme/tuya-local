@@ -41,7 +41,7 @@ class TuyaLocalBinarySensor(TuyaLocalEntity, BinarySensorEntity):
         dps_map = self._init_begin(device, config)
         self._sensor_dps = dps_map.pop("sensor")
         if self._sensor_dps is None:
-            raise AttributeError(f"{config.name} is missing a sensor dps")
+            raise AttributeError(f"{config.config_id} is missing a sensor dps")
         self._init_end(dps_map)
 
     @property
@@ -53,7 +53,9 @@ class TuyaLocalBinarySensor(TuyaLocalEntity, BinarySensorEntity):
         except ValueError:
             if dclass:
                 _LOGGER.warning(
-                    "Unrecognised binary_sensor device class of %s ignored",
+                    "%s/%s: Unrecognised binary_sensor device class of %s ignored",
+                    self._config._device.config,
+                    self.name or "binary_sensor",
                     dclass,
                 )
             return None

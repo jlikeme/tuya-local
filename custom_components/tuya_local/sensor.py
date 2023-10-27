@@ -42,7 +42,7 @@ class TuyaLocalSensor(TuyaLocalEntity, SensorEntity):
         dps_map = self._init_begin(device, config)
         self._sensor_dps = dps_map.pop("sensor", None)
         if self._sensor_dps is None:
-            raise AttributeError(f"{config.name} is missing a sensor dps")
+            raise AttributeError(f"{config.config_id} is missing a sensor dps")
         self._unit_dps = dps_map.pop("unit", None)
 
         self._init_end(dps_map)
@@ -56,7 +56,10 @@ class TuyaLocalSensor(TuyaLocalEntity, SensorEntity):
                 return SensorDeviceClass(dclass)
             except ValueError:
                 _LOGGER.warning(
-                    "Unrecognized sensor device class of %s ignored", dclass
+                    "%s/%s: Unrecognized sensor device class of %s ignored",
+                    self._config._device.config,
+                    self.name or "sensor",
+                    dclass,
                 )
 
     @property
