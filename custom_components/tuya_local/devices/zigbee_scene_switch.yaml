@@ -1,21 +1,21 @@
-name: ZigBee ADAPROX Fingerbot
+name: ZigBee Scene Switch
 products:
-  - id: dse8ogfy
-  - id: j4pdtz9v
+  - id: axpdxqgu
 primary_entity:
-  entity: button
-  name: Button
+  entity: sensor
+  name: Switch Value
   dps:
     - id: 1
-      type: boolean
-      name: button
+      type: string
+      name: sensor
+      persist: false
 secondary_entities:
   - entity: sensor
     name: Battery Percentage
     class: battery
     category: diagnostic
     dps:
-      - id: 105
+      - id: 10
         type: integer
         name: sensor
         unit: "%"
