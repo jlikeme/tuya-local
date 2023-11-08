@@ -20,7 +20,7 @@ secondary_entities:
       - id: 101
         type: integer
         name: sensor
-        unit: lux
+        unit: lx
         class: measurement
         optional: true
   - entity: sensor

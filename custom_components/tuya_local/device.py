@@ -208,12 +208,28 @@ class TuyaLocalDevice(object):
                     self._remove_properties_from_pending_updates(poll)
 
                     for entity in self._children:
+                        write_state = True
                         # clear non-persistant dps that were not in a full poll
                         if full_poll:
                             for dp in entity._config.dps():
                                 if not dp.persist and dp.id not in poll:
                                     self._cached_state.pop(dp.id, None)
-                        entity.async_write_ha_state()
+                                # addg for zigbee_scene_switch
+                                if dp.name == "sensor" and dp.persist is False and entity.name == "Scene Switch Value":
+                                    write_state = False
+                                # addg for zigbee_adaprox_fingerbot 设置开关时，不更新其状态，等待设备反馈回来的状态
+                                if (dp.id in self._pending_updates and dp.name == "sensor" and
+                                        dp.persist is False and entity.name == "Switch State"):
+                                    write_state = False
+                        else:
+                            for dp in entity._config.dps():
+                                # addg for zigbee_scene_switch 防止仅有电量更新时，将开关状态也更新了
+                                if (dp.name == "sensor" and dp.persist is False and
+                                        entity.name == "Scene Switch Value" and dp.id not in poll):
+                                    write_state = False
+
+                        if write_state:
+                            entity.async_write_ha_state()
                 else:
                     _LOGGER.debug(
                         "%s received non data %s",

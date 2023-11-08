@@ -3,7 +3,7 @@ products:
   - id: axpdxqgu
 primary_entity:
   entity: sensor
-  name: Switch Value
+  name: Scene Switch Value
   dps:
     - id: 1
       type: string
@@ -19,3 +19,4 @@ secondary_entities:
         type: integer
         name: sensor
         unit: "%"
+        class: measurement

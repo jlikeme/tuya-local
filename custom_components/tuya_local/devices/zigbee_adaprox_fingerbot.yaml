@@ -3,19 +3,28 @@ products:
   - id: dse8ogfy
   - id: j4pdtz9v
 primary_entity:
-  entity: button
-  name: Button
+  entity: switch
+  name: Switch
   dps:
     - id: 1
       type: boolean
-      name: button
+      name: switch
 secondary_entities:
+  - entity: binary_sensor
+    name: Switch State
+    dps:
+      - id: 1
+        type: boolean
+        name: sensor
+        persist: false
   - entity: sensor
     name: Battery Percentage
     class: battery
     category: diagnostic
+    optional: true
     dps:
       - id: 105
         type: integer
         name: sensor
         unit: "%"
+        class: measurement
