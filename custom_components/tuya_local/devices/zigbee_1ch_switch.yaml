@@ -1,0 +1,10 @@
+name: ZigBee 1CH Switch
+products:
+  - id: odzoiovu
+primary_entity:
+  entity: light
+  name: switch_1
+  dps:
+    - id: 1
+      type: boolean
+      name: switch
