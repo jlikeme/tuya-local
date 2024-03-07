@@ -1,0 +1,47 @@
+name: Human Presence Detector
+products:
+  - id: 2aaelwxk
+    name: Human Presence Detector
+    model: Human Presence Detector (2aaelwxk)
+primary_entity:
+  entity: binary_sensor
+  name: Presence State
+  class: enum
+  dps:
+    - id: 1
+      type: string
+      name: sensor
+      readonly: true
+      mapping:
+        - dps_val: "presence"
+          value: true
+        - dps_val: "none"
+          value: false
+secondary_entities:
+  - entity: sensor
+    name: Bright Value
+    class: illuminance
+    dps:
+      - id: 106
+        type: integer
+        name: sensor
+        unit: lx
+        class: measurement
+        optional: true
+  - entity: sensor
+    name: Motion State
+    class: enum
+    dps:
+      - id: 101
+        type: string
+        name: sensor
+        readonly: true
+  - entity: sensor
+    name: Battery Percentage
+    class: battery
+    category: diagnostic
+    dps:
+      - id: 121
+        type: integer
+        name: sensor
+        unit: "%"
