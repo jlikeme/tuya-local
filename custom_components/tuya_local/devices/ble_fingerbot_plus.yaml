@@ -3,14 +3,13 @@ products:
   - id: yiihr7zh
     name: Fingerbot Plus
     model: Fingerbot Plus (yiihr7zh)
-primary_entity:
-  entity: button
-  name: Button
-  dps:
-    - id: 2
-      type: boolean
-      name: button
-secondary_entities:
+entities:
+  - entity: button
+    name: Button
+    dps:
+      - id: 2
+        type: boolean
+        name: button
   - entity: sensor
     name: Battery Percentage
     class: battery

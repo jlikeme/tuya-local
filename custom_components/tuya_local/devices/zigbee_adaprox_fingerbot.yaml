@@ -2,14 +2,13 @@ name: ZigBee ADAPROX Fingerbot
 products:
   - id: dse8ogfy
   - id: j4pdtz9v
-primary_entity:
-  entity: switch
-  name: Switch
-  dps:
-    - id: 1
-      type: boolean
-      name: switch
-secondary_entities:
+entities:
+  - entity: switch
+    name: Switch
+    dps:
+      - id: 1
+        type: boolean
+        name: switch
   - entity: binary_sensor
     name: Switch State
     dps:

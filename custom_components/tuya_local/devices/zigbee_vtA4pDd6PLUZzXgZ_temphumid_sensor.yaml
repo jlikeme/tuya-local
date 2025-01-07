@@ -1,16 +1,15 @@
 name: Temperature Humidity Sensor
 products:
   - id: vtA4pDd6PLUZzXgZ
-primary_entity:
-  entity: sensor
-  class: temperature
-  dps:
-    - id: 103
-      type: integer
-      name: sensor
-      unit: C
-      class: measurement
-secondary_entities:
+entities:
+  - entity: sensor
+    class: temperature
+    dps:
+      - id: 103
+        type: integer
+        name: sensor
+        unit: C
+        class: measurement
   - entity: sensor
     class: humidity
     dps:

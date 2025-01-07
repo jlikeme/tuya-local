@@ -1,15 +1,14 @@
 name: ZigBee Scene Switch
 products:
   - id: axpdxqgu
-primary_entity:
-  entity: sensor
-  name: Scene Switch Value
-  dps:
-    - id: 1
-      type: string
-      name: sensor
-      persist: false
-secondary_entities:
+entities:
+  - entity: sensor
+    name: Scene Switch Value
+    dps:
+      - id: 1
+        type: string
+        name: sensor
+        persist: false
   - entity: sensor
     name: Battery Percentage
     class: battery

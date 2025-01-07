@@ -1,14 +1,13 @@
 name: ZigBee 3CH Switch
 products:
   - id: odzoiovu
-primary_entity:
-  entity: light
-  name: switch_1
-  dps:
-    - id: 1
-      type: boolean
-      name: switch
-secondary_entities:
+entities:
+  - entity: light
+    name: switch_1
+    dps:
+      - id: 1
+        type: boolean
+        name: switch
   - entity: light
     name: switch_2
     dps:
