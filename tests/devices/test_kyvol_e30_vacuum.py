@@ -1,5 +1,5 @@
 from homeassistant.components.button import ButtonDeviceClass
-from homeassistant.components.sensor import STATE_CLASS_MEASUREMENT, SensorDeviceClass
+from homeassistant.components.sensor import SensorDeviceClass, SensorStateClass
 from homeassistant.components.vacuum import (
     STATE_CLEANING,
     STATE_ERROR,
@@ -8,7 +8,7 @@ from homeassistant.components.vacuum import (
     STATE_RETURNING,
     VacuumEntityFeature,
 )
-from homeassistant.const import AREA_SQUARE_METERS, PERCENTAGE, UnitOfTime
+from homeassistant.const import PERCENTAGE, UnitOfArea, UnitOfTime
 
 from ..const import KYVOL_E30_VACUUM_PAYLOAD
 from ..helpers import assert_device_properties_set
@@ -60,7 +60,6 @@ class TestKyvolE30Vacuum(MultiButtonTests, MultiSensorTests, TuyaDeviceTestCase)
                 {
                     "dps": RSTFILTER_DPS,
                     "name": "button_filter_reset",
-                    "device_class": ButtonDeviceClass.RESTART,
                 },
             ]
         )
@@ -69,7 +68,8 @@ class TestKyvolE30Vacuum(MultiButtonTests, MultiSensorTests, TuyaDeviceTestCase)
                 {
                     "dps": AREA_DPS,
                     "name": "sensor_clean_area",
-                    "unit": AREA_SQUARE_METERS,
+                    "unit": UnitOfArea.SQUARE_METERS,
+                    "device_class": SensorDeviceClass.AREA,
                     "testdata": (30, 3.0),
                 },
                 {
@@ -102,13 +102,14 @@ class TestKyvolE30Vacuum(MultiButtonTests, MultiSensorTests, TuyaDeviceTestCase)
                     "name": "sensor_battery",
                     "unit": PERCENTAGE,
                     "device_class": SensorDeviceClass.BATTERY,
-                    "state_class": STATE_CLASS_MEASUREMENT,
+                    "state_class": SensorStateClass.MEASUREMENT,
                 },
             ],
         )
 
         self.mark_secondary(
             [
+                "binary_sensor_problem",
                 "button_edge_brush_reset",
                 "button_roll_brush_reset",
                 "button_filter_reset",

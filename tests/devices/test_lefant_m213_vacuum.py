@@ -1,4 +1,4 @@
-from homeassistant.components.sensor import STATE_CLASS_MEASUREMENT, SensorDeviceClass
+from homeassistant.components.sensor import SensorDeviceClass, SensorStateClass
 from homeassistant.components.vacuum import (
     STATE_CLEANING,
     STATE_ERROR,
@@ -7,7 +7,7 @@ from homeassistant.components.vacuum import (
     STATE_RETURNING,
     VacuumEntityFeature,
 )
-from homeassistant.const import AREA_SQUARE_METERS, PERCENTAGE, UnitOfTime
+from homeassistant.const import PERCENTAGE, UnitOfArea, UnitOfTime
 
 from ..const import LEFANT_M213_VACUUM_PAYLOAD
 from ..helpers import assert_device_properties_set
@@ -43,7 +43,8 @@ class TestLefantM213Vacuum(MultiSensorTests, TuyaDeviceTestCase):
                 {
                     "dps": AREA_DPS,
                     "name": "sensor_clean_area",
-                    "unit": AREA_SQUARE_METERS,
+                    "unit": UnitOfArea.SQUARE_METERS,
+                    "device_class": SensorDeviceClass.AREA,
                 },
                 {
                     "dps": TIME_DPS,
@@ -56,27 +57,30 @@ class TestLefantM213Vacuum(MultiSensorTests, TuyaDeviceTestCase):
                     "name": "sensor_battery",
                     "unit": PERCENTAGE,
                     "device_class": SensorDeviceClass.BATTERY,
-                    "state_class": STATE_CLASS_MEASUREMENT,
+                    "state_class": SensorStateClass.MEASUREMENT,
                 },
             ],
         )
-        self.mark_secondary(["sensor_clean_area", "sensor_clean_time"])
+        self.mark_secondary(
+            ["sensor_clean_area", "sensor_clean_time", "binary_sensor_problem"]
+        )
 
     def test_supported_features(self):
         self.assertEqual(
             self.subject.supported_features,
             (
-                VacuumEntityFeature.STATE
-                | VacuumEntityFeature.STATUS
+                VacuumEntityFeature.CLEAN_SPOT
+                | VacuumEntityFeature.FAN_SPEED
+                | VacuumEntityFeature.LOCATE
+                | VacuumEntityFeature.PAUSE
+                | VacuumEntityFeature.RETURN_HOME
                 | VacuumEntityFeature.SEND_COMMAND
+                | VacuumEntityFeature.START
+                | VacuumEntityFeature.STATE
+                | VacuumEntityFeature.STATUS
+                | VacuumEntityFeature.STOP
                 | VacuumEntityFeature.TURN_ON
                 | VacuumEntityFeature.TURN_OFF
-                | VacuumEntityFeature.START
-                | VacuumEntityFeature.PAUSE
-                | VacuumEntityFeature.LOCATE
-                | VacuumEntityFeature.RETURN_HOME
-                | VacuumEntityFeature.CLEAN_SPOT
-                | VacuumEntityFeature.FAN_SPEED
             ),
         )
 
@@ -181,12 +185,12 @@ class TestLefantM213Vacuum(MultiSensorTests, TuyaDeviceTestCase):
         ):
             await self.subject.async_locate()
 
-    async def test_async_send_standby_command(self):
+    async def test_async_stop(self):
         async with assert_device_properties_set(
             self.subject._device,
             {COMMAND_DPS: "standby"},
         ):
-            await self.subject.async_send_command("standby")
+            await self.subject.async_stop()
 
     async def test_async_send_smart_command(self):
         async with assert_device_properties_set(

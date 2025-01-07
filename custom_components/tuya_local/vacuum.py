@@ -17,9 +17,9 @@ from homeassistant.components.vacuum import (
 )
 
 from .device import TuyaLocalDevice
+from .entity import TuyaLocalEntity
 from .helpers.config import async_tuya_setup_platform
 from .helpers.device_config import TuyaEntityConfig
-from .helpers.mixin import TuyaLocalEntity
 
 
 async def async_setup_entry(hass, config_entry, async_add_entities):
@@ -176,6 +176,15 @@ class TuyaLocalVacuum(TuyaLocalEntity, StateVacuumEntity):
     async def async_send_command(self, command, params=None, **kwargs):
         """Send a command to the vacuum cleaner."""
         dps = self._command_dps or self._status_dps
+        # stop command is often present in both command and direction dps
+        # in that case, prefer the direction dp as async_stop will cover
+        # the commad dp seperately.
+        if (
+            command == SERVICE_STOP
+            and self._direction_dps
+            and SERVICE_STOP in self._direction_dps.values(self._device)
+        ):
+            dps = self._direction_dps
         if command in dps.values(self._device):
             await dps.async_set_value(self._device, command)
         elif self._direction_dps and command in self._direction_dps.values(

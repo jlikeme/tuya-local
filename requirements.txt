@@ -1,1 +1,2 @@
-tinytuya~=1.13.2
+tinytuya~=1.16.0
+tuya-device-sharing-sdk~=0.2.1
