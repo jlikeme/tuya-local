@@ -6,7 +6,7 @@ products:
 primary_entity:
   entity: binary_sensor
   name: Presence State
-  class: enum
+  class: motion
   dps:
     - id: 1
       type: string
