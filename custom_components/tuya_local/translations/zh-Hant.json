@@ -100,6 +100,13 @@
     },
     "entity": {
         "binary_sensor": {
+            "direction": {
+                "name": "方向",
+                "state": {
+                    "off": "進入",
+                    "on": "離開"
+                }
+            },
             "defrost": {
                 "name": "除霜",
                 "state": {
@@ -179,6 +186,7 @@
                 }
             },
             "thermostat": {
+                "name": "恆溫器",
                 "state_attributes": {
                     "fan_mode": {
                         "state": {
@@ -304,12 +312,25 @@
                             "medium": "中",
                             "high": "高",
                             "continuous": "連續",
-                            "intermittent": "間歇"
+                            "intermittent": "間歇",
+                            "timer": "計時"
+                        }
+                    }
+                }
+            },
+            "dehumidifier": {
+                "name": "除濕機",
+                "state_attributes": {
+                    "preset_mode": {
+                        "state": {
+                            "purify": "淨化",
+                            "dehumidify": "除濕"
                         }
                     }
                 }
             },
             "fan_with_presets": {
+                "name": "風扇",
                 "state_attributes": {
                     "preset_mode": {
                         "state": {
@@ -339,7 +360,9 @@
                             "sleep": "睡眠",
                             "auto": "自動",
                             "eco": "節能",
-                            "anti-condensation": "防凝結"
+                            "anti-condensation": "防凝結",
+                            "extractor": "抽氣",
+                            "heat_recovery": "熱回收"
                         }
                     }
                 }
@@ -385,6 +408,16 @@
             }
         },
         "select": {
+            "currency": {
+                "name": "貨幣",
+                "state": {
+                    "usd": "美元",
+                    "eur": "歐元",
+                    "cny": "人民幣",
+                    "cad": "加拿大元",
+                    "gbp": "英鎊"
+                }
+            },
             "initial_state": {
                 "name": "初始狀態",
                 "state": {
@@ -440,6 +473,8 @@
                     "cake": "蛋糕",
                     "bread": "麵包",
                     "toast": "吐司",
+                    "sausage": "香腸",
+                    "dry_fruit": "乾果",
                     "custom": "自訂",
                     "cloud_recipe": "雲端食譜",
                     "default": "預設",
@@ -447,12 +482,34 @@
                     "preheat": "預熱"
                 }
             },
+            "scene": {
+                "name": "場景",
+                "state": {
+                    "relax": "放鬆",
+                    "movie": "電影",
+                    "party": "派對",
+                    "romantic": "浪漫",
+                    "night": "夜晚",
+                    "morning": "早晨",
+                    "working": "工作",
+                    "leisure": "休閒",
+                    "vacation": "度假",
+                    "reading": "閱讀",
+                    "twinkle": "閃爍",
+                    "gaming": "遊戲",
+                    "none": "無"
+                }
+            },
             "timer": {
                 "name": "計時器",
                 "state": {
                     "cancel": "取消",
+                    "continuous": "連續",
+                    "5m": "5分鐘",
                     "10m": "10分鐘",
+                    "20m": "20分鐘",
                     "30m": "30分鐘",
+                    "40m": "40分鐘",
                     "1h": "1小時",
                     "1h30m": "1小時30分鐘",
                     "2h": "2小時",
@@ -536,6 +593,16 @@
             }
         },
         "sensor": {
+            "air_quality": {
+                "name": "空氣質量",
+                "state": {
+                    "excellent": "優",
+                    "good": "良",
+                    "moderate": "中",
+                    "poor": "差",
+                    "severe": "極差"
+                }
+            },
             "status": {
                 "name": "狀態",
                 "state": {
@@ -602,7 +669,11 @@
                     "close": "關閉",
                     "monitor": "監控",
                     "working": "運行中",
-                    "warning": "警告"
+                    "warning": "警告",
+                    "starting": "啟動中",
+                    "emptying": "排空中",
+                    "resetting": "重置中",
+                    "reverse": "反轉中"
                 }
             },
             "time_remaining": {
@@ -617,6 +688,16 @@
                     "cancel": "取消烹飪",
                     "done": "烹飪完成",
                     "pause": "烹飪暫停"
+                }
+            },
+            "water_level": {
+                "name": "水量",
+                "state": {
+                    "empty": "空",
+                    "low": "低",
+                    "medium": "中",
+                    "high": "高",
+                    "full": "滿"
                 }
             },
             "energy_produced": {
@@ -665,6 +746,14 @@
             },
             "uv_sterilization": {
                 "name": "紫外線消毒"
+            },
+            "electrolytic_sterilization": {
+                "name": "電解消毒"
+            }
+        },
+        "text": {
+            "scene": {
+                "name": "場景"
             }
         }
     }

@@ -94,6 +94,7 @@ class TestSwitchV2Energy(
                     "name": "sensor_energy",
                     "dps": ENERGY_DPS,
                     "unit": UnitOfEnergy.WATT_HOUR,
+                    "state_class": "measurement",
                 },
                 {
                     "name": "sensor_voltage",
@@ -178,3 +179,9 @@ class TestSwitchV2Energy(
             self.basicBSensor.extra_state_attributes,
             {"fault_code": 2},
         )
+
+    def test_available(self):
+        self.dps[INITIAL_DPS] = None
+        self.assertFalse(self.basicSelect.available)
+        self.dps[INITIAL_DPS] = "on"
+        self.assertTrue(self.basicSelect.available)

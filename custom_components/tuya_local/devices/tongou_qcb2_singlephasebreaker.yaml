@@ -1,7 +1,8 @@
 name: Circuit breaker
 products:
   - id: l1t5oophgyzpdrag
-    name: Tongou QCB2-WB single-phase
+    manufacturer: Tongou
+    model: QCB2-WB single-phase
 entities:
   - entity: switch
     icon: "mdi:fuse"
@@ -146,6 +147,7 @@ entities:
   - entity: switch
     category: config
     name: Live updates
+    deprecated: button
     icon: "mdi:chart-bar"
     dps:
       - id: 109
@@ -159,6 +161,19 @@ entities:
             value: false
           - value: false
             hidden: true
+  - entity: button
+    category: config
+    name: Live updates
+    icon: "mdi:chart-bar"
+    dps:
+      - id: 109
+        type: string
+        name: button
+        optional: true
+        mapping:
+          - dps_val: online
+            value: true
+          - value: false
   - entity: event
     dps:
       - id: 110

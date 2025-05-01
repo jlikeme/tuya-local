@@ -103,6 +103,13 @@
     },
     "entity": {
         "binary_sensor": {
+            "direction": {
+                "name": "سمت",
+                "state": {
+                    "off": "آنے والی",
+                    "on": "جانب"
+                }
+            },
             "defrost": {
                 "name": "ڈیفروسٹ",
                 "state": {
@@ -182,6 +189,7 @@
                 }
             },
             "thermostat": {
+                "name": "تھرموسٹیٹ",
                 "state_attributes": {
                     "fan_mode": {
                         "state": {
@@ -306,12 +314,25 @@
                             "medium": "درمیانہ",
                             "high": "زیادہ",
                             "continuous": "مسلسل",
-                            "intermittent": "منقطع"
+                            "intermittent": "منقطع",
+                            "timer": "ٹائمر"
+                        }
+                    }
+                }
+            },
+            "dehumidifier": {
+                "name": "ڈی ہیومیڈیفائر",
+                "state_attributes": {
+                    "preset_mode": {
+                        "state": {
+                            "purify": "پاک کریں۔",
+                            "dehumidify": "ڈی ہیومیڈیفائی کریں۔"
                         }
                     }
                 }
             },
             "fan_with_presets": {
+                "name": "پنکھا",
                 "state_attributes": {
                     "preset_mode": {
                         "state": {
@@ -341,7 +362,9 @@
                             "sleep": "سونا",
                             "auto": "خود مختار",
                             "eco": "ایکو",
-                            "anti-condensation": "اینٹی کنڈینسیشن"
+                            "anti-condensation": "اینٹی کنڈینسیشن",
+                            "extractor": "نکالنے والا",
+                            "heat_recovery": "حرارتی بازیابی"
                         }
                     }
                 }
@@ -387,6 +410,16 @@
             }
         },
         "select": {
+            "currency": {
+                "name": "کرنسی",
+                "state": {
+                    "usd": "یو ایس ڈی",
+                    "eur": "یورو",
+                    "cny": "چینی یوان",
+                    "cad": "کینیڈین ڈالر",
+                    "gbp": "برطانوی پاؤنڈ"
+                }
+            },
             "initial_state": {
                 "name": "ابتدائی حالت",
                 "state": {
@@ -442,6 +475,8 @@
                     "cake": "کیک",
                     "bread": "روٹی",
                     "toast": "ٹوسٹ",
+                    "sausage": "سوسیج",
+                    "dry_fruit": "خشک پھل",
                     "custom": "اپنی مرضی",
                     "cloud_recipe": "کلاؤڈ ریسیپی",
                     "default": "پہلے سے طے شدہ",
@@ -449,12 +484,34 @@
                     "preheat": "پری ہیٹ"
                 }
             },
+            "scene": {
+                "name": "منظر",
+                "state": {
+                    "relax": "آرام",
+                    "movie": "فلم",
+                    "party": "پارٹی",
+                    "romantic": "رومانٹک",
+                    "night": "رات",
+                    "morning": "صبح",
+                    "working": "کام",
+                    "leisure": "فراغت",
+                    "vacation": "چھٹی",
+                    "reading": "پڑھائی",
+                    "twinkle": "چمک",
+                    "gaming": "گیمنگ",
+                    "none": "کوئی نہیں"
+                }
+            },
             "timer": {
                 "name": "ٹائمر",
                 "state": {
                     "cancel": "منسوخ کریں",
+                    "continuous": "مسلسل",
+                    "5m": "5 منٹ",
                     "10m": "10 منٹ",
+                    "20m": "20 منٹ",
                     "30m": "30 منٹ",
+                    "40m": "40 منٹ",
                     "1h": "1 گھنٹہ",
                     "1h30m": "1 گھنٹہ 30 منٹ",
                     "2h": "2 گھنٹے",
@@ -538,6 +595,16 @@
             }
         },
         "sensor": {
+            "air_quality": {
+                "name": "ہوا کی معیار",
+                "state": {
+                    "excellent": "شاندار",
+                    "good": "اچھا",
+                    "moderate": "معتدل",
+                    "poor": "خراب",
+                    "severe": "شدید"
+                }
+            },
             "status": {
                 "name": "حالت",
                 "state": {
@@ -604,7 +671,11 @@
                     "close": "بند",
                     "monitor": "مانیٹر",
                     "working": "کام کر رہا ہے",
-                    "warning": "انتباہ"
+                    "warning": "انتباہ",
+                    "starting": "شروع ہو رہا ہے",
+                    "emptying": "خالی کرنا",
+                    "resetting": "ری سیٹ کرنا",
+                    "reverse": "الٹا"
                 }
             },
             "time_remaining": {
@@ -619,6 +690,16 @@
                     "cancel": "پکانا منسوخ کر دیا",
                     "done": "پکانا مکمل ہوگیا",
                     "pause": "پکانا معطل ہوگیا"
+                }
+            },
+            "water_level": {
+                "name": "پانی کی سطح",
+                "state": {
+                    "full": "مکمل",
+                    "high": "زیادہ",
+                    "medium": "درمیانہ",
+                    "low": "کم",
+                    "empty": "خالی"
                 }
             },
             "energy_produced": {
@@ -665,8 +746,16 @@
             "switch_x": {
                 "name": "سوئچ {x}"
             },
+            "electrolytic_sterilization": {
+                "name": "الیکٹرولائٹک نس بندی"
+            },
             "uv_sterilization": {
                 "name": "UV نس بندی"
+            }
+        },
+        "text": {
+            "scene": {
+                "name": "منظر"
             }
         }
     }

@@ -1,4 +1,8 @@
-name: Inventor Atomsphere XL dehumidifier
+name: Dehumidifier
+# products:
+#   - id: UNKNOWN
+#     manufacturer: Inventor
+#     model: Atmosphere XL
 entities:
   - entity: humidifier
     class: dehumidifier
@@ -300,8 +304,7 @@ entities:
             value: "On"
   - entity: sensor
     category: diagnostic
-    name: Air quality
-    icon: "mdi:weather-dust"
+    translation_key: air_quality
     dps:
       - id: 108
         type: string

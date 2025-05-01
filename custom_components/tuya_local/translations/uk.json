@@ -102,6 +102,13 @@
     },
     "entity": {
         "binary_sensor": {
+            "direction": {
+                "name": "Напрямок",
+                "state": {
+                    "off": "Вхідний",
+                    "on": "Вихідний"
+                }
+            },
             "defrost": {
                 "name": "Розморожування",
                 "state": {
@@ -181,6 +188,7 @@
                 }
             },
             "thermostat": {
+                "name": "Термостат",
                 "state_attributes": {
                     "fan_mode": {
                         "state": {
@@ -306,12 +314,25 @@
                             "medium": "Середній",
                             "high": "Високий",
                             "continuous": "Постійний",
-                            "intermittent": "Інтермітентний"
+                            "intermittent": "Інтермітентний",
+                            "timer": "Таймер"
+                        }
+                    }
+                }
+            },
+            "dehumidifier": {
+                "name": "Осушувач",
+                "state_attributes": {
+                    "preset_mode": {
+                        "state": {
+                            "purify": "Очистити",
+                            "dehumidify": "Осушити"
                         }
                     }
                 }
             },
             "fan_with_presets": {
+                "name": "Вентилятор",
                 "state_attributes": {
                     "preset_mode": {
                         "state": {
@@ -341,7 +362,9 @@
                             "sleep": "Сон",
                             "auto": "Авто",
                             "eco": "Еко",
-                            "anti-condensation": "Антиконденсат"
+                            "anti-condensation": "Антиконденсат",
+                            "extractor": "Екстрактор",
+                            "heat_recovery": "Відновлення тепла"
                         }
                     }
                 }
@@ -387,6 +410,16 @@
             }
         },
         "select": {
+            "currency": {
+                "name": "Валюта",
+                "state": {
+                    "usd": "USD",
+                    "eur": "EUR",
+                    "cny": "CNY",
+                    "cad": "CAD",
+                    "gbp": "GBP"
+                }
+            },
             "initial_state": {
                 "name": "Початковий стан",
                 "state": {
@@ -442,6 +475,8 @@
                     "cake": "Торт",
                     "bread": "Хліб",
                     "toast": "Тост",
+                    "sausage": "Ковбаса",
+                    "dry_fruit": "Сухофрукти",
                     "custom": "Користувацький",
                     "cloud_recipe": "Хмарний рецепт",
                     "default": "За замовчуванням",
@@ -449,12 +484,34 @@
                     "preheat": "Попередній нагрів"
                 }
             },
+            "scene": {
+                "name": "Сцена",
+                "state": {
+                    "relax": "Релакс",
+                    "movie": "Фільм",
+                    "party": "Вечірка",
+                    "romantic": "Романтика",
+                    "night": "Ніч",
+                    "morning": "Ранок",
+                    "working": "Робота",
+                    "leisure": "Дозвілля",
+                    "vacation": "Відпустка",
+                    "reading": "Читання",
+                    "twinkle": "Мерехтіння",
+                    "gaming": "Ігри",
+                    "none": "Нічого"
+                }
+            },
             "timer": {
                 "name": "Таймер",
                 "state": {
                     "cancel": "Скасувати",
+                    "continuous": "Постійний",
+                    "5m": "5 хвилин",
                     "10m": "10 хвилин",
+                    "20m": "20 хвилин",
                     "30m": "30 хвилин",
+                    "40m": "40 хвилин",
                     "1h": "1 година",
                     "1h30m": "1 година 30 хвилин",
                     "2h": "2 години",
@@ -538,6 +595,16 @@
             }
         },
         "sensor": {
+            "air_quality": {
+                "name": "Якість повітря",
+                "state": {
+                    "excellent": "Відмінно",
+                    "good": "Добре",
+                    "moderate": "Помірно",
+                    "poor": "Погано",
+                    "severe": "Важко"
+                }
+            },
             "status": {
                 "name": "Статус",
                 "state": {
@@ -604,7 +671,11 @@
                     "close": "Закрито",
                     "monitor": "Монітор",
                     "working": "Працює",
-                    "warning": "Попередження"
+                    "warning": "Попередження",
+                    "starting": "Початок",
+                    "emptying": "Опорожнення",
+                    "resetting": "Скидання",
+                    "reverse": "Реверс"
                 }
             },
             "time_remaining": {
@@ -619,6 +690,16 @@
                     "cancel": "Скасувати",
                     "done": "Готово",
                     "pause": "Приготування призупинено"
+                }
+            },
+            "water_level": {
+                "name": "Рівень води",
+                "state": {
+                    "full": "Повний",
+                    "high": "Високий",
+                    "medium": "Середній",
+                    "low": "Низький",
+                    "empty": "Порожній"
                 }
             },
             "energy_produced": {
@@ -665,8 +746,16 @@
             "switch_x": {
                 "name": "Вимикач {x}"
             },
+            "electrolytic_sterilization": {
+                "name": "Електролітична стерилізація"
+            },
             "uv_sterilization": {
                 "name": "УФ стерилізація"
+            }
+        },
+        "text": {
+            "scene": {
+                "name": "Сцена"
             }
         }
     }

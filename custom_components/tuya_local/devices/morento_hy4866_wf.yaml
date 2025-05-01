@@ -36,7 +36,7 @@ entities:
         class: measurement
         unit: ugm3
   - entity: sensor
-    name: Filter used
+    name: Filter remaining
     category: diagnostic
     icon: "mdi:ticket-percent-outline"
     dps:
@@ -67,7 +67,7 @@ entities:
         name: option
         mapping:
           - dps_val: Cancel
-            value: infinite
+            value: cancel
           - dps_val: "2H"
             value: "2h"
           - dps_val: "5H"
@@ -75,17 +75,16 @@ entities:
           - dps_val: "8H"
             value: "8h"
   - entity: sensor
-    name: Air quality
+    translation_key: air_quality
     class: enum
-    icon: "mdi:air-filter"
     dps:
       - id: 21
         name: sensor
         type: string
         mapping:
-          - dps_val: "good"
-            value: "Good"
-          - dps_val: "medium"
-            value: "Medium"
-          - dps_val: "severe"
-            value: "Severe"
+          - dps_val: good
+            value: good
+          - dps_val: medium
+            value: moderate
+          - dps_val: severe
+            value: severe

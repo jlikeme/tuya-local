@@ -1,7 +1,7 @@
 name: Alarm system
 products:
   - id: htpbvowq2gkxx3bx
-    name: TS106
+    model: TS106
 entities:
   - entity: alarm_control_panel
     dps:
@@ -113,7 +113,7 @@ entities:
           - dps_val: H
             value: 1.0
   - entity: light
-    class: indicator
+    translation_key: indicator
     category: config
     dps:
       - id: 122

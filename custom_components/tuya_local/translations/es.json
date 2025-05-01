@@ -100,6 +100,13 @@
     },
     "entity": {
         "binary_sensor": {
+            "direction": {
+                "name": "Dirección",
+                "state": {
+                    "off": "Entrante",
+                    "on": "Saliente"
+                }
+            },
             "defrost": {
                 "name": "Descongelar",
                 "state": {
@@ -179,6 +186,7 @@
                 }
             },
             "thermostat": {
+                "name": "Termostato",
                 "state_attributes": {
                     "fan_mode": {
                         "state": {
@@ -303,12 +311,25 @@
                             "medium": "Medio",
                             "high": "Alto",
                             "continuous": "Continuo",
-                            "intermittent": "Intermitente"
+                            "intermittent": "Intermitente",
+                            "timer": "Temporizador"
+                        }
+                    }
+                }
+            },
+            "dehumidifier": {
+                "name": "Deshumidificador",
+                "state_attributes": {
+                    "preset_mode": {
+                        "state": {
+                            "purify": "Purificar",
+                            "dehumidify": "Deshumidificar"
                         }
                     }
                 }
             },
             "fan_with_presets": {
+                "name": "Ventilador",
                 "state_attributes": {
                     "preset_mode": {
                         "state": {
@@ -338,7 +359,9 @@
                             "sleep": "Dormir",
                             "auto": "Auto",
                             "eco": "Ecológico",
-                            "anti-condensation": "Anticondensación"
+                            "anti-condensation": "Anticondensación",
+                            "extractor": "Extractor",
+                            "heat_recovery": "Recuperación de calor"
                         }
                     }
                 }
@@ -384,6 +407,16 @@
             }
         },
         "select": {
+            "currency": {
+                "name": "Moneda",
+                "state": {
+                    "usd": "USD",
+                    "eur": "EUR",
+                    "cny": "CNY",
+                    "cad": "CAD",
+                    "gbp": "GBP"
+                }
+            },
             "initial_state": {
                 "name": "Estado inicial",
                 "state": {
@@ -439,6 +472,8 @@
                     "cake": "Pastel",
                     "bread": "Pan",
                     "toast": "Tostada",
+                    "sausage": "Salchicha",
+                    "dry_fruit": "Fruta seca",
                     "custom": "Personalizado",
                     "cloud_recipe": "Receta de la nube",
                     "default": "Predeterminado",
@@ -446,12 +481,34 @@
                     "preheat": "Precalentar"
                 }
             },
+            "scene": {
+                "name": "Escena",
+                "state": {
+                    "relax": "Relajarse",
+                    "movie": "Película",
+                    "party": "Fiesta",
+                    "romantic": "Romántico",
+                    "night": "Noche",
+                    "morning": "Mañana",
+                    "working": "Trabajando",
+                    "leisure": "Ocio",
+                    "vacation": "Vacaciones",
+                    "reading": "Leyendo",
+                    "twinkle": "Destello",
+                    "gaming": "Juegos",
+                    "none": "Ninguno"
+                }
+            },
             "timer": {
                 "name": "Temporizador",
                 "state": {
                     "cancel": "Cancelar",
+                    "continuous": "Continuo",
+                    "5m": "5 minutos",
                     "10m": "10 minutos",
+                    "20m": "20 minutos",
                     "30m": "30 minutos",
+                    "40m": "40 minutos",
                     "1h": "1 hora",
                     "1h30m": "1 hora 30 minutos",
                     "2h": "2 horas",
@@ -535,6 +592,16 @@
             }
         },
         "sensor": {
+            "air_quality": {
+                "name": "Calidad del aire",
+                "state": {
+                    "excellent": "Excelente",
+                    "good": "Bueno",
+                    "moderate": "Moderado",
+                    "poor": "Malo",
+                    "severe": "Severo"
+                }
+            },
             "status": {
                 "name": "Estado",
                 "state": {
@@ -601,7 +668,11 @@
                     "close": "Cerrado",
                     "monitor": "Monitor",
                     "working": "Trabajando",
-                    "warning": "Advertencia"
+                    "warning": "Advertencia",
+                    "starting": "Iniciando",
+                    "emptying": "Vaciando",
+                    "resetting": "Restableciendo",
+                    "reverse": "Reversa"
                 }
             },
             "time_remaining": {
@@ -616,6 +687,16 @@
                     "cancel": "Cocción cancelada",
                     "done": "Cocción completada",
                     "pause": "Pausa en la cocción"
+                }
+            },
+            "water_level": {
+                "name": "Nivel de agua",
+                "state": {
+                    "full": "Lleno",
+                    "high": "Alto",
+                    "medium": "Medio",
+                    "low": "Bajo",
+                    "empty": "Vacío"
                 }
             },
             "energy_produced": {
@@ -662,8 +743,16 @@
             "switch_x": {
                 "name": "Interruptor {x}"
             },
+            "electrolytic_sterilization": {
+                "name": "Esterilización electrolítica"
+            },
             "uv_sterilization": {
                 "name": "Esterilización UV"
+            }
+        },
+        "text": {
+            "scene": {
+                "name": "Escena"
             }
         }
     }

@@ -1,7 +1,8 @@
 name: Air purifier
 products:
   - id: 7v1gn9wmbqvtcqkc
-    name: Tesla Air S300
+    manufacturer: Tesla Smart
+    model: S300
 entities:
   - entity: fan
     dps:
@@ -112,7 +113,7 @@ entities:
           - dps_val: "12h"
             value: "12h"
   - entity: sensor
-    name: Air quality
+    translation_key: air_quality
     class: enum
     category: diagnostic
     dps:
@@ -121,13 +122,13 @@ entities:
         name: sensor
         mapping:
           - dps_val: great
-            value: Great
+            value: excellent
           - dps_val: mild
-            value: Mild
+            value: moderate
           - dps_val: good
-            value: Good
+            value: good
           - dps_val: medium
-            value: Medium
+            value: poor
   - entity: binary_sensor
     class: problem
     category: diagnostic
@@ -175,6 +176,7 @@ entities:
           - dps_val: yellow
             value: yellow
   - entity: select
+    # 2024-11-21
     name: Light
     deprecated: light
     icon: "mdi:lightbulb"

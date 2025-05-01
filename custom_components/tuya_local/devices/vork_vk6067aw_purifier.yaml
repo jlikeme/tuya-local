@@ -1,7 +1,8 @@
 name: Air purifier
 products:
   - id: trpege6ebn8at1el
-    name: Vork VK-6067AW
+    manufacturer: Vork
+    model: VK-6067AW
 entities:
   - entity: fan
     icon: "mdi:air-purifier"
@@ -75,23 +76,22 @@ entities:
         type: integer
         unit: min
   - entity: sensor
-    name: Air quality
+    translation_key: air_quality
     category: diagnostic
     class: enum
-    icon: "mdi:air-filter"
     dps:
       - id: 21
         name: sensor
         type: string
         mapping:
           - dps_val: great
-            value: "Great"
-          - dps_val: "good"
-            value: "Good"
-          - dps_val: "medium"
-            value: "Medium"
-          - dps_val: "severe"
-            value: "Severe"
+            value: excellent
+          - dps_val: good
+            value: good
+          - dps_val: medium
+            value: poor
+          - dps_val: severe
+            value: severe
   - entity: binary_sensor
     category: diagnostic
     class: problem
